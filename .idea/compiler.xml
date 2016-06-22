@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spring-boot-shiro-lazulite-starter" />
+        <module name="untitled" />
+      </profile>
+      <profile default="false" name="Annotation profile for spring-boot-shiro-lazulite-autoconfig" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spring-boot-shiro-lazulite-autoconfig" />
+      </profile>
+      <profile default="false" name="Annotation profile for spring-boot-autoconfig-shiro-lazulite" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spring-boot-autoconfig-shiro-lazulite" />
+      </profile>
+      <profile default="false" name="Annotation profile for spring-boot-starter-shiro-lazulite" enabled="true">
+        <sourceOutputDir name="../../spring-boot-starter-shiro-lazulite/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../spring-boot-starter-shiro-lazulite/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spring-boot-starter-shiro-lazulite" />
+      </profile>
+      <profile default="false" name="Annotation profile for lazulite-boot-autoconfigure" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lazulite-boot-autoconfigure" />
+      </profile>
+      <profile default="false" name="Annotation profile for lazulite-boot-starter-osaam-shiro" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lazulite-boot-starter-osaam-shiro" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lazulite-boot" target="1.5" />
+      <module name="lazulite-boot-autoconfigure" target="1.8" />
+      <module name="lazulite-boot-dependencies" target="1.5" />
+      <module name="lazulite-boot-parent" target="1.8" />
+      <module name="lazulite-boot-starter-osaam-shiro" target="1.8" />
+      <module name="lazulite-boot-starters" target="1.8" />
+      <module name="lazulite-spring-boot" target="1.5" />
+      <module name="osaam" target="1.8" />
+      <module name="osaam-autoconfigure" target="1.8" />
+      <module name="ossaam" target="1.8" />
+      <module name="spring-boot-autoconfig-shiro-lazulite" target="1.8" />
+      <module name="spring-boot-shiro-lazulite" target="1.8" />
+      <module name="spring-boot-shiro-lazulite-autoconfig" target="1.6" />
+      <module name="spring-boot-shiro-lazulite-starter" target="1.5" />
+      <module name="spring-boot-starter-shiro-lazulite" target="1.5" />
+      <module name="test" target="1.5" />
+      <module name="untitled" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

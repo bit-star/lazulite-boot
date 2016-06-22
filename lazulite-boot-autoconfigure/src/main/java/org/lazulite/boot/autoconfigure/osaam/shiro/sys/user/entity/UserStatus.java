@@ -1,0 +1,21 @@
+package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
+
+/**
+ * <p>User: 
+ * <p>Date: 13-3-11 下午3:19
+ * <p>Version: 1.0
+ */
+public enum UserStatus {
+
+    normal("正常状态"), blocked("封禁状态");
+
+    private final String info;
+
+    private UserStatus(String info) {
+        this.info = info;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+}
