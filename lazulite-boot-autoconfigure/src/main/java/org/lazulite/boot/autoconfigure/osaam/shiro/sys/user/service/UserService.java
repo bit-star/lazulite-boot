@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service;
@@ -19,7 +25,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseService;
+import org.lazulite.boot.autoconfigure.core.service.BaseService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOrganizationJob;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserStatus;
@@ -34,7 +40,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -42,16 +47,15 @@ import java.util.Set;
 @Service
 public class UserService extends BaseService<User, Long> {
 
-    //@Autowired
+    @Autowired
+    private UserStatusHistoryService userStatusHistoryService;
+    @Autowired
+    private PasswordService passwordService;
+
+    @Autowired
     private UserRepository getUserRepository() {
         return (UserRepository) baseRepository;
     }
-
-    @Autowired
-    private UserStatusHistoryService userStatusHistoryService;
-
-    @Autowired
-    private PasswordService passwordService;
 
     public void setPasswordService(PasswordService passwordService) {
         this.passwordService = passwordService;
@@ -59,9 +63,6 @@ public class UserService extends BaseService<User, Long> {
 
     @Override
     public User save(User user) {
-        if (user.getCreateDate() == null) {
-            user.setCreateDate(new Date());
-        }
         user.randomSalt();
         user.setPassword(passwordService.encryptPassword(user.getUsername(), user.getPassword(), user.getSalt()));
 
@@ -98,14 +99,14 @@ public class UserService extends BaseService<User, Long> {
     }
 
     public User findByUsername(String username) {
-        if(StringUtils.isEmpty(username)) {
+        if (StringUtils.isEmpty(username)) {
             return null;
         }
         return getUserRepository().findByUsername(username);
     }
 
     public User findByEmail(String email) {
-        if(StringUtils.isEmpty(email)) {
+        if (StringUtils.isEmpty(email)) {
             return null;
         }
         return getUserRepository().findByEmail(email);
@@ -113,7 +114,7 @@ public class UserService extends BaseService<User, Long> {
 
 
     public User findByMobilePhoneNumber(String mobilePhoneNumber) {
-        if(StringUtils.isEmpty(mobilePhoneNumber)) {
+        if (StringUtils.isEmpty(mobilePhoneNumber)) {
             return null;
         }
         return getUserRepository().findByMobilePhoneNumber(mobilePhoneNumber);

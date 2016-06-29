@@ -1,3 +1,19 @@
+/*
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc;
 
 
@@ -7,10 +23,10 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.lazulite.boot.autoconfigure.core.utils.SpringUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.service.UserAuthService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserService;
-import org.lazulite.boot.autoconfigure.osaam.shiro.util.SpringUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.info.*;
 import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.token.Token;
 import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.token.UpToken;
@@ -60,11 +76,11 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
 
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
-        if(request.getContentType().contains("application/json")){
+        if (request.getContentType().contains("application/json")) {
 
             try {
-                ObjectMapper objectMapper=new ObjectMapper();
-                Token token = objectMapper.readValue(request.getInputStream(),UpToken.class).getToken();
+                ObjectMapper objectMapper = new ObjectMapper();
+                Token token = objectMapper.readValue(request.getInputStream(), UpToken.class).getToken();
                 String host = getHost(request);
                 return createToken(token.getPrincipal(), token.getCredentials(), token.getRememberMe(), host);
             } catch (IOException e) {
@@ -84,8 +100,8 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
     protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request, ServletResponse response) throws Exception {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-        ObjectMapper objectMapper=new ObjectMapper();
-        if(!request.getContentType().contains("application/json")){
+        ObjectMapper objectMapper = new ObjectMapper();
+        if (!request.getContentType().contains("application/json")) {
             // 不是ajax请求
             issueSuccessRedirect(request, response);
         } else {
@@ -93,23 +109,23 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
             UserService userService = SpringUtils.getBean(UserService.class);
             httpServletResponse.setCharacterEncoding("UTF-8");
             PrintWriter out = httpServletResponse.getWriter();
-            String username = (String)subject.getPrincipal();
+            String username = (String) subject.getPrincipal();
             User user = userService.findByUsername(username);
 
-            AuthenticationInfo authenticationInfo=new AuthenticationInfo();
-            Info info=new Info();
-            Authc authc=new Authc();
-            Principal principal=new Principal();
+            AuthenticationInfo authenticationInfo = new AuthenticationInfo();
+            Info info = new Info();
+            Authc authc = new Authc();
+            Principal principal = new Principal();
             principal.setName(user.getUsername());
             principal.setLogin(user.getUsername());
             principal.setEmail(user.getEmail());
-            Credentials credentials=new Credentials();
+            Credentials credentials = new Credentials();
             credentials.setName(user.getUsername());
             credentials.setLogin(user.getUsername());
             credentials.setEmail(user.getEmail());
             authc.setCredentials(credentials);
             authc.setPrincipal(principal);
-            Authz authz=new Authz();
+            Authz authz = new Authz();
             UserAuthService userAuthService = SpringUtils.getBean(UserAuthService.class);
             authz.setRoles(Lists.newArrayList(userAuthService.findStringRoles(user)));
             authz.setPermissions(Lists.newArrayList(userAuthService.findStringPermissions(user)));
@@ -146,7 +162,8 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
         if (!request.getContentType().contains("application/json")) {// 不是ajax请求
             setFailureAttribute(request, e);
             return true;
-        } try {
+        }
+        try {
 
             response.setCharacterEncoding("UTF-8");
             PrintWriter out = response.getWriter();
@@ -169,9 +186,8 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
         }
         return false;
 
-       // return super.onLoginFailure(token, e, request, response);
+        // return super.onLoginFailure(token, e, request, response);
     }
-
 
 
 }

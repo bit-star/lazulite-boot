@@ -6,10 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/lazulite-boot-autoconfigure/lazulite-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/lazulite-boot-autoconfigure/lazulite-boot-autoconfigure.iml" />
       <module fileurl="file://$PROJECT_DIR$/lazulite-boot-dependencies/lazulite-boot-dependencies.iml" filepath="$PROJECT_DIR$/lazulite-boot-dependencies/lazulite-boot-dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/lazulite-boot-parent/lazulite-boot-parent.iml" filepath="$PROJECT_DIR$/lazulite-boot-parent/lazulite-boot-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starter-core/lazulite-boot-starter-core.iml" filepath="$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starter-core/lazulite-boot-starter-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starter-osaam-shiro/lazulite-boot-starter-osaam-shiro.iml" filepath="$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starter-osaam-shiro/lazulite-boot-starter-osaam-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starters.iml" filepath="$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starters.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lazulite-boot-autoconfigure/osaam-autoconfigure.iml" filepath="$PROJECT_DIR$/lazulite-boot-autoconfigure/osaam-autoconfigure.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starter-osaam-shiro/spring-boot-starter-shiro-lazulite.iml" filepath="$PROJECT_DIR$/lazulite-boot-starters/lazulite-boot-starter-osaam-shiro/spring-boot-starter-shiro-lazulite.iml" />
     </modules>
   </component>
 </project>

@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.scheduler;
@@ -28,9 +34,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 使用spring的任务调度器完成 session验证
- * <p>User: 
- * <p>Date: 13-7-2 下午5:33
- * <p>Version: 1.0
+
  */
 public class SpringSessionValidationScheduler implements SessionValidationScheduler {
 
@@ -62,25 +66,20 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
      */
     @Autowired
     private ValidatingSessionManager sessionManager;
-
-    @PostConstruct
-    public void init(){
-        ((OnlineWebSessionManager)sessionManager).setSessionValidationScheduler(this);
-    }
     /**
      * The session validation interval in milliseconds.
      */
     private long sessionValidationInterval = DEFAULT_SESSION_VALIDATION_INTERVAL;
-
-    /*--------------------------------------------
-    |         C O N S T R U C T O R S           |
-    ============================================*/
 
     /**
      * Default constructor.
      */
     public SpringSessionValidationScheduler() {
     }
+
+    /*--------------------------------------------
+    |         C O N S T R U C T O R S           |
+    ============================================*/
 
     /**
      * Constructor that specifies the session manager that should be used for validating sessions.
@@ -89,6 +88,11 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
      */
     public SpringSessionValidationScheduler(ValidatingSessionManager sessionManager) {
         this.sessionManager = sessionManager;
+    }
+
+    @PostConstruct
+    public void init() {
+        ((OnlineWebSessionManager) sessionManager).setSessionValidationScheduler(this);
     }
 
     /*--------------------------------------------
@@ -104,7 +108,6 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
     }
 
 
-
     public void setSessionManager(ValidatingSessionManager sessionManager) {
         this.sessionManager = sessionManager;
     }
@@ -116,7 +119,7 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
     /**
      * Specifies how frequently (in milliseconds) this Scheduler will call the
      * {@link ValidatingSessionManager#validateSessions() ValidatingSessionManager#validateSessions()} method.
-     *
+     * <p>
      * <p>Unless this method is called, the default value is {@link #DEFAULT_SESSION_VALIDATION_INTERVAL}.
      *
      * @param sessionValidationInterval
@@ -149,7 +152,7 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
             scheduler.schedule(new Runnable() {
                 @Override
                 public void run() {
-                    if(enabled) {
+                    if (enabled) {
                         sessionManager.validateSessions();
                     }
                 }

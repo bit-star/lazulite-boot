@@ -1,21 +1,26 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.entity;
 
 
-
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,12 +28,10 @@ import javax.persistence.Table;
 
 /**
  * 分组与 用户/组织机构关系表
- * <p/>
+ * <p>
  * 将用户/组织机构放一张表目的是提高查询性能
- * <p/>
- * <p>User: 
- * <p>Date: 13-4-19 下午3:44
- * <p>Version: 1.0
+ * <p>
+
  */
 @Entity
 @Table(name = "sys_group_relation")

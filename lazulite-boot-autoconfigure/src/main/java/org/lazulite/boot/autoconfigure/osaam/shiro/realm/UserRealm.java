@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.realm;
@@ -31,14 +37,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserRealm extends AuthorizingRealm {
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private UserAuthService userAuthService;
-
     private static final Logger log = LoggerFactory.getLogger("es-error");
+    private static final String OR_OPERATOR = " or ";
+    private static final String AND_OPERATOR = " and ";
 
-//    @Autowired
+    //    @Autowired
 //    public UserRealm(ApplicationContext ctx) {
 //        super();
 //        //不能注入 因为获取bean依赖顺序问题造成可能拿不到某些bean报错
@@ -48,6 +51,11 @@ public class UserRealm extends AuthorizingRealm {
 //        //所以此处我们先getBean一下 就没有问题了
 //        ctx.getBeansOfType(SimpleBaseRepositoryFactoryBean.class);
 //    }
+    private static final String NOT_OPERATOR = "not ";
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private UserAuthService userAuthService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -60,10 +68,6 @@ public class UserRealm extends AuthorizingRealm {
 
         return authorizationInfo;
     }
-
-    private static final String OR_OPERATOR = " or ";
-    private static final String AND_OPERATOR = " and ";
-    private static final String NOT_OPERATOR = "not ";
 
     /**
      * 支持or and not 关键词  不支持and or混用
@@ -113,7 +117,7 @@ public class UserRealm extends AuthorizingRealm {
 //        }
         User user = userService.findByUsername(username);
 
-        if(user == null) {
+        if (user == null) {
             throw new UnknownAccountException();//没找到帐号
         }
 
@@ -122,7 +126,7 @@ public class UserRealm extends AuthorizingRealm {
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(), //用户名
                 user.getPassword(), //密码
-                ByteSource.Util.bytes(user.getUsername()+user.getSalt()),//salt
+                ByteSource.Util.bytes(user.getUsername() + user.getSalt()),//salt
                 getName()  //realm name
         );
         return authenticationInfo;

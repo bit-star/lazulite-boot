@@ -1,33 +1,35 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.sync;
 
 
+import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSession;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.eis.OnlineSessionDAO;
-import org.apache.shiro.web.filter.PathMatchingFilter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
  * 同步当前会话数据到数据库
- * <p/>
- * <p>User: 
- * <p>Date: 13-3-21 下午5:53
- * <p>Version: 1.0
  */
 public class SyncOnlineSessionFilter extends PathMatchingFilter {
 

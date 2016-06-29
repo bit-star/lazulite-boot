@@ -1,24 +1,30 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.eis;
 
 
 import org.apache.shiro.session.Session;
+import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSession;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSessionFactory;
-import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOnline;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserOnlineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +34,7 @@ import java.util.Date;
 
 /**
  * 对于db的操作 考虑使用 异步+队列机制
- * <p/>
- * <p>User: 
- * <p>Date: 13-3-19 下午4:49
- * <p>Version: 1.0
+
  */
 public class OnlineSessionDAO extends EnterpriseCacheSessionDAO {
     /**
@@ -57,7 +60,7 @@ public class OnlineSessionDAO extends EnterpriseCacheSessionDAO {
 
     @Override
     protected Session doReadSession(Serializable sessionId) {
-        UserOnline userOnline = userOnlineService.findOne(String.valueOf(sessionId));
+        UserOnline userOnline = userOnlineService.findOne(Long.valueOf(String.valueOf(sessionId)));
         if (userOnline == null) {
             return null;
         }
@@ -115,7 +118,7 @@ public class OnlineSessionDAO extends EnterpriseCacheSessionDAO {
         //定时任务删除的此时就不删除了
         if (onlineSession.getAttribute(ShiroConstants.ONLY_CLEAR_CACHE) == null) {
             try {
-                userOnlineService.offline(String.valueOf(onlineSession.getId()));
+                userOnlineService.offline(Long.valueOf(String.valueOf(onlineSession.getId())));
             } catch (Exception e) {
                 //即使删除失败也无所谓
             }

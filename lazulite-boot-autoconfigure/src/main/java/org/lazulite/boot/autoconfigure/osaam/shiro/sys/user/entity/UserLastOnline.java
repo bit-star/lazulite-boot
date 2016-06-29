@@ -1,21 +1,27 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
 
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -24,9 +30,6 @@ import java.util.Date;
 /**
  * 在线用户最后一次在线信息()
  * 此表对于分析活跃用户有用
- * <p>User: 
- * <p>Date: 13-3-11 下午3:25
- * <p>Version: 1.0
  */
 @Entity
 @Table(name = "sys_user_last_online")
@@ -95,6 +98,29 @@ public class UserLastOnline extends BaseEntity<Long> {
     @Column(name = "total_online_time")
     private Long totalOnlineTime = 0L;
 
+    public static final UserLastOnline fromUserOnline(UserOnline online) {
+        UserLastOnline lastOnline = new UserLastOnline();
+        lastOnline.setHost(online.getHost());
+        lastOnline.setUserId(online.getUserId());
+        lastOnline.setUsername(online.getUsername());
+        lastOnline.setUserAgent(online.getUserAgent());
+        lastOnline.setSystemHost(online.getSystemHost());
+        lastOnline.setUid(String.valueOf(online.getId()));
+        lastOnline.setLastLoginTimestamp(online.getStartTimestamp());
+        lastOnline.setLastStopTimestamp(online.getLastAccessTime());
+        return lastOnline;
+    }
+
+    public static final void merge(UserLastOnline from, UserLastOnline to) {
+        to.setHost(from.getHost());
+        to.setUserId(from.getUserId());
+        to.setUsername(from.getUsername());
+        to.setUserAgent(from.getUserAgent());
+        to.setSystemHost(from.getSystemHost());
+        to.setUid(String.valueOf(from.getUid()));
+        to.setLastLoginTimestamp(from.getLastLoginTimestamp());
+        to.setLastStopTimestamp(from.getLastStopTimestamp());
+    }
 
     public String getUid() {
         return uid;
@@ -183,31 +209,6 @@ public class UserLastOnline extends BaseEntity<Long> {
     public void incTotalOnlineTime() {
         long onlineTime = getLastStopTimestamp().getTime() - getLastLoginTimestamp().getTime();
         setTotalOnlineTime(getTotalOnlineTime() + onlineTime / 1000);
-    }
-
-
-    public static final UserLastOnline fromUserOnline(UserOnline online) {
-        UserLastOnline lastOnline = new UserLastOnline();
-        lastOnline.setHost(online.getHost());
-        lastOnline.setUserId(online.getUserId());
-        lastOnline.setUsername(online.getUsername());
-        lastOnline.setUserAgent(online.getUserAgent());
-        lastOnline.setSystemHost(online.getSystemHost());
-        lastOnline.setUid(String.valueOf(online.getId()));
-        lastOnline.setLastLoginTimestamp(online.getStartTimestamp());
-        lastOnline.setLastStopTimestamp(online.getLastAccessTime());
-        return lastOnline;
-    }
-
-    public static final void merge(UserLastOnline from, UserLastOnline to) {
-        to.setHost(from.getHost());
-        to.setUserId(from.getUserId());
-        to.setUsername(from.getUsername());
-        to.setUserAgent(from.getUserAgent());
-        to.setSystemHost(from.getSystemHost());
-        to.setUid(String.valueOf(from.getUid()));
-        to.setLastLoginTimestamp(from.getLastLoginTimestamp());
-        to.setLastStopTimestamp(from.getLastStopTimestamp());
     }
 
 }

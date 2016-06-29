@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
@@ -23,104 +29,65 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseEntity;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.LogicDeleteable;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.plugin.entity.LogicDeleteable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * <p>User: 
- * <p>Date: 13-2-4 上午9:38
- * <p>Version: 1.0
- */
 @Entity
 @Table(name = "sys_user")
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User extends BaseEntity<Long> implements LogicDeleteable {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = -324246902947068110L;
-	public static final String USERNAME_PATTERN = "^[\\u4E00-\\u9FA5\\uf900-\\ufa2d_a-zA-Z0-9][\\u4E00-\\u9FA5\\uf900-\\ufa2d\\w]{1,19}$";
+    public static final String USERNAME_PATTERN = "^[\\u4E00-\\u9FA5\\uf900-\\ufa2d_a-zA-Z0-9][\\u4E00-\\u9FA5\\uf900-\\ufa2d\\w]{1,19}$";
     public static final String EMAIL_PATTERN = "^((([a-z]|\\d|[!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])+(\\.([a-z]|\\d|[!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])+)*)|((\\x22)((((\\x20|\\x09)*(\\x0d\\x0a))?(\\x20|\\x09)+)?(([\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f]|\\x21|[\\x23-\\x5b]|[\\x5d-\\x7e]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])|(\\\\([\\x01-\\x09\\x0b\\x0c\\x0d-\\x7f]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF]))))*(((\\x20|\\x09)*(\\x0d\\x0a))?(\\x20|\\x09)+)?(\\x22)))@((([a-z]|\\d|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])|(([a-z]|\\d|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])([a-z]|\\d|-|\\.|_|~|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])*([a-z]|\\d|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])))\\.)+(([a-z]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])|(([a-z]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])([a-z]|\\d|-|\\.|_|~|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])*([a-z]|[\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF])))\\.?";
-    public static final String MOBILE_PHONE_NUMBER_PATTERN =  "^[0-9-()（）]{7,18}";
+    public static final String MOBILE_PHONE_NUMBER_PATTERN = "^[0-9-()（）]{7,18}";
     public static final int USERNAME_MIN_LENGTH = 2;
     public static final int USERNAME_MAX_LENGTH = 20;
     public static final int PASSWORD_MIN_LENGTH = 5;
     public static final int PASSWORD_MAX_LENGTH = 50;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -324246902947068110L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    //@SequenceGenerator(name="seq",sequenceName="sys_user_sequence",allocationSize=1,initialValue=11)
-    private Long id;
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    
     @NotNull(message = "{not.null}")
     @Pattern(regexp = USERNAME_PATTERN, message = "{user.username.not.valid}")
+    @Column
     private String username;
-
     @NotEmpty(message = "{not.null}")
     @Pattern(regexp = EMAIL_PATTERN, message = "{user.email.not.valid}")
     private String email;
-
     @NotEmpty(message = "{not.null}")
     @Pattern(regexp = MOBILE_PHONE_NUMBER_PATTERN, message = "{user.mobile.phone.number.not.valid}")
     @Column(name = "mobile_phone_number")
     private String mobilePhoneNumber;
-
     /**
      * 使用md5(username + original password + salt)加密存储
      */
     @Length(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH, message = "{user.password.not.valid}")
     private String password;
-
     /**
      * 加密密码时使用的种子
      */
     private String salt;
 
     /**
-     * 创建时间
-     */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @Column(name = "create_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
-
-    /**
      * 系统用户的状态
      */
     @Enumerated(EnumType.STRING)
     private UserStatus status = UserStatus.normal;
-
     /**
      * 是否是管理员
      */
     private Boolean admin = false;
-
     /**
      * 逻辑删除flag
      */
     private Boolean deleted = Boolean.FALSE;
-
-
     /**
      * 用户 组织机构 工作职务关联表
      */
@@ -132,6 +99,8 @@ public class User extends BaseEntity<Long> implements LogicDeleteable {
     @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//集合缓存
     @OrderBy()
     private List<UserOrganizationJob> organizationJobs;
+    private transient Map<Long, List<UserOrganizationJob>> organizationJobsMap;
+
 
     public User() {
     }
@@ -148,17 +117,14 @@ public class User extends BaseEntity<Long> implements LogicDeleteable {
         return organizationJobs;
     }
 
-    public void addOrganizationJob(UserOrganizationJob userOrganizationJob) {
-        userOrganizationJob.setUser(this);
-        getOrganizationJobs().add(userOrganizationJob);
-    }
-
     public void setOrganizationJobs(List<UserOrganizationJob> organizationJobs) {
         this.organizationJobs = organizationJobs;
     }
 
-
-    private transient Map<Long, List<UserOrganizationJob>> organizationJobsMap;
+    public void addOrganizationJob(UserOrganizationJob userOrganizationJob) {
+        userOrganizationJob.setUser(this);
+        getOrganizationJobs().add(userOrganizationJob);
+    }
 
     @Transient
     public Map<Long, List<UserOrganizationJob>> getDisplayOrganizationJobs() {
@@ -211,13 +177,7 @@ public class User extends BaseEntity<Long> implements LogicDeleteable {
         setSalt(RandomStringUtils.randomAlphanumeric(10));
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
 
     public UserStatus getStatus() {
         return status;

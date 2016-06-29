@@ -1,25 +1,30 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.service;
-
 
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseService;
+import org.lazulite.boot.autoconfigure.core.service.BaseService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.entity.Group;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +34,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * <p>User: 
- * <p>Date: 13-2-4 下午3:01
- * <p>Version: 1.0
- */
+
 @Service
 public class GroupService extends BaseService<Group, Long> {
 
@@ -46,7 +47,6 @@ public class GroupService extends BaseService<Group, Long> {
     }
 
     public Set<Map<String, Object>> findIdAndNames(Pageable pageable, String groupName) {
-
 
 
         return Sets.newHashSet(

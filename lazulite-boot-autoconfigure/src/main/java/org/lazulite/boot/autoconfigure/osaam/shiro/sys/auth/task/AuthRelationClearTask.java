@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.task;
@@ -17,6 +23,7 @@ package org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.task;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import org.lazulite.boot.autoconfigure.core.utils.LogUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.entity.Auth;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.service.AuthService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.service.GroupService;
@@ -24,7 +31,6 @@ import org.lazulite.boot.autoconfigure.osaam.shiro.sys.organization.service.JobS
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.organization.service.OrganizationService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.Role;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.service.RoleService;
-import org.lazulite.boot.autoconfigure.osaam.shiro.util.LogUtils;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -78,7 +84,7 @@ public class AuthRelationClearTask {
                 LogUtils.logError("clear auth relation error", e);
             }
             //清空会话
-          //  RepositoryHelper.clear();
+            //  RepositoryHelper.clear();
         } while (authPage.hasNext());
     }
 

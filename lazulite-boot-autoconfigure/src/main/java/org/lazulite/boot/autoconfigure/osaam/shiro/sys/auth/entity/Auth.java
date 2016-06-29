@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.entity;
@@ -18,8 +24,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseEntity;
-import org.lazulite.boot.autoconfigure.osaam.shiro.type.CollectionToStringUserType;
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.repository.hibernate.type.CollectionToStringUserType;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -32,20 +38,17 @@ import java.util.Set;
  * 给组织机构和工作职务都授权 (orgnizationId=? and jobId=?)
  * 给用户授权  (userId=?)
  * 给组授权 (groupId=?)
- * <p/>
+ * <p>
  * 因此查询用户有没有权限 就是
  * where (orgnizationId=? and jobId=0) or (organizationId = 0 and jobId=?) or (orgnizationId=? and jobId=?) or (userId=?) or (groupId=?)
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * 2、为了提高性能
  * 放到一张表
  * 此处不做关系映射（这样需要配合缓存）
- * <p/>
+ * <p>
  * 3、如果另一方是可选的（如只选组织机构 或 只选工作职务） 那么默认0 使用0的目的是为了也让走索引
- * <p/>
- * <p>User: 
- * <p>Date: 13-4-24 下午2:14
- * <p>Version: 1.0
+ * <p>
  */
 @TypeDef(
         name = "SetToStringUserType",

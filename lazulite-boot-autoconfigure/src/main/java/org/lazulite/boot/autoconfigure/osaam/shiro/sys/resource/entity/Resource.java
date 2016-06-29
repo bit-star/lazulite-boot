@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2016. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
- * 
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity;
@@ -17,18 +23,14 @@ package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.BaseEntity;
-import org.lazulite.boot.autoconfigure.osaam.shiro.base.Treeable;
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.plugin.entity.Treeable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- * <p>User: 
- * <p>Date: 13-2-4 上午9:38
- * <p>Version: 1.0
- */
+
 @Entity
 @Table(name = "sys_resource")
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -42,7 +44,7 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
     /**
      * 资源标识符 用于权限匹配的 如sys:resource
      */
-    private String identity="";
+    private String identity = "";
 
     /**
      * 点击后前往的地址
@@ -78,7 +80,7 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
      */
     @Column(name = "is_show")
     private Boolean show = Boolean.FALSE;
-    
+
     private String diy;
 
     public String getName() {
@@ -236,12 +238,12 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
         return "ztree_file";
     }
 
-	public String getDiy() {
-		return diy;
-	}
+    public String getDiy() {
+        return diy;
+    }
 
-	public void setDiy(String diy) {
-		this.diy = diy;
-	}
+    public void setDiy(String diy) {
+        this.diy = diy;
+    }
 
 }

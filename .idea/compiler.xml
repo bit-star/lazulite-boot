@@ -46,13 +46,6 @@
         <processorPath useClasspath="true" />
         <module name="spring-boot-starter-shiro-lazulite" />
       </profile>
-      <profile default="false" name="Annotation profile for lazulite-boot-autoconfigure" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="lazulite-boot-autoconfigure" />
-      </profile>
       <profile default="false" name="Annotation profile for lazulite-boot-starter-osaam-shiro" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -60,14 +53,30 @@
         <processorPath useClasspath="true" />
         <module name="lazulite-boot-starter-osaam-shiro" />
       </profile>
+      <profile default="false" name="Annotation profile for lazulite-boot-autoconfigure" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lazulite-boot-autoconfigure" />
+      </profile>
+      <profile default="false" name="Annotation profile for lazulite-boot-starter-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lazulite-boot-starter-core" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="lazulite-boot" target="1.5" />
       <module name="lazulite-boot-autoconfigure" target="1.8" />
       <module name="lazulite-boot-dependencies" target="1.5" />
-      <module name="lazulite-boot-parent" target="1.8" />
+      <module name="lazulite-boot-parent" target="1.5" />
+      <module name="lazulite-boot-starter-core" target="1.8" />
       <module name="lazulite-boot-starter-osaam-shiro" target="1.8" />
-      <module name="lazulite-boot-starters" target="1.8" />
+      <module name="lazulite-boot-starters" target="1.5" />
+      <module name="lazulite-boot-starters-core" target="1.5" />
       <module name="lazulite-spring-boot" target="1.5" />
       <module name="osaam" target="1.8" />
       <module name="osaam-autoconfigure" target="1.8" />

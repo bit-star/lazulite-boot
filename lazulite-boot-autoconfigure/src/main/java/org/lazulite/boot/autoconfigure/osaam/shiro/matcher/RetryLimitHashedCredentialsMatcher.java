@@ -1,3 +1,19 @@
+/*
+ * Copyright 2016. junfu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.lazulite.boot.autoconfigure.osaam.shiro.matcher;
 
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -21,28 +37,27 @@ public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher
     private int retryMax;
 
 
-
     public RetryLimitHashedCredentialsMatcher(CacheManager cacheManager) {
         passwordRetryCache = cacheManager.getCache("passwordRetryCache");
     }
 
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) throws ExcessiveAttemptsException {
-        String username = (String)token.getPrincipal();
+        String username = (String) token.getPrincipal();
         AtomicInteger retryCount = passwordRetryCache.get(username);
 
-        if(retryCount == null) {
+        if (retryCount == null) {
             retryCount = new AtomicInteger(0);
             passwordRetryCache.put(username, retryCount);
         }
-        if(retryCount.incrementAndGet() > retryMax) {
+        if (retryCount.incrementAndGet() > retryMax) {
             throw new ExcessiveAttemptsException("您已连续错误达" + retryMax + "次！请10分钟后再试");
         }
 
         boolean matches = super.doCredentialsMatch(token, info);
-        if(matches) {
+        if (matches) {
             passwordRetryCache.remove(username);
-        }else {
+        } else {
             throw new IncorrectCredentialsException("密码错误，已错误" + retryCount.get() + "次，最多错误" + retryMax + "次");
         }
         return true;
