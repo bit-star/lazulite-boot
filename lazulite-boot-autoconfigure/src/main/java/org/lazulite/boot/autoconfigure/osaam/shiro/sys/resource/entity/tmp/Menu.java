@@ -19,6 +19,8 @@
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.tmp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.common.collect.Lists;
 
 import java.io.Serializable;
@@ -28,18 +30,40 @@ import java.util.List;
  * 界面是那个使用的菜单对象
  */
 public class Menu implements Serializable {
+    @JsonIgnore
     private Long id;
-    private String name;
+    private String text;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String icon;
-    private String url;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String sref;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean heading;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String translate;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String alert;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String label;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<Menu> submenu;
 
-    private List<Menu> children;
-
-    public Menu(Long id, String name, String icon, String url) {
+    public Menu(Long id, String text, String icon, String sref) {
         this.id = id;
-        this.name = name;
+        this.text = text;
         this.icon = icon;
-        this.url = url;
+        this.sref = sref;
+    }
+
+    public Menu(Long id, String text, String icon, String sref, Boolean heading, String translate, String alert, String label) {
+        this.id = id;
+        this.text = text;
+        this.icon = icon;
+        this.sref = sref;
+        this.heading = heading;
+        this.translate = translate;
+        this.alert = alert;
+        this.label = label;
     }
 
     public Long getId() {
@@ -50,15 +74,16 @@ public class Menu implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getText() {
+        return text;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public String getIcon() {
+        if(!this.isHasChildren())return null;
         return icon;
     }
 
@@ -66,40 +91,78 @@ public class Menu implements Serializable {
         this.icon = icon;
     }
 
-    public String getUrl() {
-        return url;
+    public String getSref() {
+        return sref;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setSref(String sref) {
+        this.sref = sref;
     }
 
-    public List<Menu> getChildren() {
-        if (children == null) {
-            children = Lists.newArrayList();
+    public List<Menu> getSubmenu() {
+        if (submenu == null) {
+            submenu = Lists.newArrayList();
         }
-        return children;
+        return submenu;
     }
 
-    public void setChildren(List<Menu> children) {
-        this.children = children;
+    public void setSubmenu(List<Menu> submenu) {
+        this.submenu = submenu;
     }
 
     /**
      * @return
      */
+    @JsonIgnore
     public boolean isHasChildren() {
-        return !getChildren().isEmpty();
+        return !getSubmenu().isEmpty();
+    }
+
+
+    public Boolean isHeading() {
+        return heading;
+    }
+
+    public void setHeading(Boolean heading) {
+        this.heading = heading;
+    }
+
+    public String getTranslate() {
+        return translate;
+    }
+
+    public void setTranslate(String translate) {
+        this.translate = translate;
+    }
+
+    public String getAlert() {
+        return alert;
+    }
+
+    public void setAlert(String alert) {
+        this.alert = alert;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     @Override
     public String toString() {
         return "Menu{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", text='" + text + '\'' +
                 ", icon='" + icon + '\'' +
-                ", url='" + url + '\'' +
-                ", children=" + children +
+                ", sref='" + sref + '\'' +
+                ", heading=" + heading +
+                ", translate='" + translate + '\'' +
+                ", alert='" + alert + '\'' +
+                ", label='" + label + '\'' +
+                ", submenu=" + submenu +
                 '}';
     }
 }

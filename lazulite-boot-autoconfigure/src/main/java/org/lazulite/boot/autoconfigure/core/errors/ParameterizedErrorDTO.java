@@ -14,16 +14,30 @@
  * limitations under the License.
  */
 
+package org.lazulite.boot.autoconfigure.core.errors;
+
+import java.io.Serializable;
+
 /**
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * DTO for sending a parameterized error message.
  */
-package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.repository;
+public class ParameterizedErrorDTO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    private final String message;
+    private final String[] params;
 
-import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.Resource;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+    public ParameterizedErrorDTO(String message, String... params) {
+        this.message = message;
+        this.params = params;
+    }
 
-@RepositoryRestResource
-public interface ResourceRepository extends BaseRepository<Resource, Long> {
+    public String getMessage() {
+        return message;
+    }
+
+    public String[] getParams() {
+        return params;
+    }
+
 }

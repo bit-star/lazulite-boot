@@ -20,7 +20,6 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity;
 
 
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
 import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
@@ -68,6 +67,14 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
      * 图标
      */
     private String icon;
+
+    private String translate;
+
+    private String alert;
+
+    private String label;
+
+    private Boolean heading;
 
     /**
      * 是否有叶子节点
@@ -153,16 +160,17 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
     }
 
     public String getIcon() {
-        if (!StringUtils.isEmpty(icon)) {
-            return icon;
-        }
-        if (isRoot()) {
-            return getRootDefaultIcon();
-        }
-        if (isLeaf()) {
-            return getLeafDefaultIcon();
-        }
-        return getBranchDefaultIcon();
+//        if (!StringUtils.isEmpty(icon)) {
+//            return icon;
+//        }
+//        if (isRoot()) {
+//            return getRootDefaultIcon();
+//        }
+//        if (isLeaf()) {
+//            return getLeafDefaultIcon();
+//        }
+//        return getBranchDefaultIcon();
+        return icon;
     }
 
     public void setIcon(String icon) {
@@ -246,4 +254,35 @@ public class Resource extends BaseEntity<Long> implements Treeable<Long> {
         this.diy = diy;
     }
 
+    public String getTranslate() {
+        return translate;
+    }
+
+    public void setTranslate(String translate) {
+        this.translate = translate;
+    }
+
+    public String getAlert() {
+        return alert;
+    }
+
+    public void setAlert(String alert) {
+        this.alert = alert;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Boolean getHeading() {
+        return heading;
+    }
+
+    public void setHeading(Boolean heading) {
+        this.heading = heading;
+    }
 }

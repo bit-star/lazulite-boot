@@ -25,6 +25,8 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.lazulite.boot.autoconfigure.osaam.shiro.cache.spring.SpringCacheManagerWrapper;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSessionFactory;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.eis.OnlineSessionDAO;
+import org.lazulite.boot.autoconfigure.osaam.shiro.spring.ShiroAuditorAware;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserService;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -91,6 +93,14 @@ public class ShiroConfiguration {
         onlineSessionDAO.setActiveSessionsCacheName("shiro-activeSessionCache");
         return onlineSessionDAO;
     }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public ShiroAuditorAware shiroAuditorAware() {
+        ShiroAuditorAware shiroAuditorAware=new ShiroAuditorAware();
+        return shiroAuditorAware;
+    }
+
 
 
 }

@@ -16,7 +16,7 @@
 
 package org.lazulite.boot.autoconfigure.osaam.shiro.annotation;
 
-import org.lazulite.boot.autoconfigure.osaam.shiro.spring.ShiroWebMvcConfigurerAdapter;
+import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroWebMvcConfigurerAdapter;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;

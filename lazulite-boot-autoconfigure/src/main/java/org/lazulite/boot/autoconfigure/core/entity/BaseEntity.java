@@ -18,6 +18,7 @@ package org.lazulite.boot.autoconfigure.core.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -43,6 +44,7 @@ public abstract class BaseEntity<ID extends Serializable> implements Persistable
     private String createdBy;
     @CreatedDate
     @Column(name = "created_date")
+    @Convert(converter = ZonedDateTimeConverter.class)
     @JsonIgnore
     private ZonedDateTime createdDate = ZonedDateTime.now();
     @LastModifiedBy
@@ -51,6 +53,7 @@ public abstract class BaseEntity<ID extends Serializable> implements Persistable
     private String lastModifiedBy;
     @LastModifiedDate
     @Column(name = "last_modified_date")
+    @Convert(converter = ZonedDateTimeConverter.class)
     @JsonIgnore
     private ZonedDateTime lastModifiedDate = ZonedDateTime.now();
 

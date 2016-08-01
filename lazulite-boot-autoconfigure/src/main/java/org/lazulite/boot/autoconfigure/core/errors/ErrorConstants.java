@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-/**
- * Licensed under the Apache License, Version 2.0 (the "License");
- */
-package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.repository;
+package org.lazulite.boot.autoconfigure.core.errors;
 
+public final class ErrorConstants {
 
-import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.Resource;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+    public static final String ERR_CONCURRENCY_FAILURE = "error.concurrencyFailure";
+    public static final String ERR_ACCESS_DENIED = "error.accessDenied";
+    public static final String ERR_VALIDATION = "error.validation";
+    public static final String ERR_METHOD_NOT_SUPPORTED = "error.methodNotSupported";
+    public static final String ERR_INTERNAL_SERVER_ERROR = "error.internalServerError";
 
-@RepositoryRestResource
-public interface ResourceRepository extends BaseRepository<Resource, Long> {
+    private ErrorConstants() {
+    }
+
 }

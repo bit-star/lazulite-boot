@@ -21,7 +21,6 @@ import org.apache.commons.fileupload.FileUploadException;
  * 文件名超长
  */
 public class FileNameLengthLimitExceededException extends FileUploadException {
-
     private int length;
     private int maxLength;
     private String filename;

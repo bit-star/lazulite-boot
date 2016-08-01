@@ -28,6 +28,7 @@ import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.Resource;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.tmp.Menu;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -48,8 +49,10 @@ public class ResourceService extends BaseService<Resource, Long> {
         }
         Menu root = convertToMenu(resources.remove(resources.size() - 1));
         recursiveMenu(root, resources);
-        List<Menu> menus = root.getChildren();
+        List<Menu> menus = root.getSubmenu();
         removeNoLeafMenu(menus);
+        root.setSubmenu(null);
+        menus.add(0,root);
         return menus;
     }
 
@@ -59,8 +62,8 @@ public class ResourceService extends BaseService<Resource, Long> {
         }
         for (int i = menus.size() - 1; i >= 0; i--) {
             Menu m = menus.get(i);
-            removeNoLeafMenu(m.getChildren());
-            if (!m.isHasChildren() && StringUtils.isEmpty(m.getUrl())) {
+            removeNoLeafMenu(m.getSubmenu());
+            if (!m.isHasChildren() && StringUtils.isEmpty(m.getSref())) {
                 menus.remove(i);
             }
         }
@@ -70,18 +73,18 @@ public class ResourceService extends BaseService<Resource, Long> {
         for (int i = resources.size() - 1; i >= 0; i--) {
             Resource resource = resources.get(i);
             if (resource.getParentId().equals(menu.getId())) {
-                menu.getChildren().add(convertToMenu(resource));
+                menu.getSubmenu().add(convertToMenu(resource));
                 resources.remove(i);
             }
         }
 
-        for (Menu subMenu : menu.getChildren()) {
+        for (Menu subMenu : menu.getSubmenu()) {
             recursiveMenu(subMenu, resources);
         }
     }
 
     private static Menu convertToMenu(Resource resource) {
-        return new Menu(resource.getId(), resource.getName(), resource.getIcon(), resource.getUrl());
+        return new Menu(resource.getId(), resource.getName(),resource.getIcon(),resource.getUrl(),resource.getId()==1?true:null,resource.getTranslate(),resource.getAlert(),resource.getLabel());
     }
 
     /**
@@ -141,7 +144,8 @@ public class ResourceService extends BaseService<Resource, Long> {
 //                Pageable.newSearchable()
 //                        .addSearchFilter("show", SearchOperator.eq, true)
 //                        .addSort(new Sort(Sort.Direction.DESC, "parentId", "weight"));
-        List<Resource> resources = findAll();
+
+        List<Resource> resources =  findAll(new Sort(Sort.Direction.DESC,"parentId","weight"));
         Set<String> userPermissions = userAuthService.findStringPermissions(user);
         Iterator<Resource> iter = resources.iterator();
         while (iter.hasNext()) {

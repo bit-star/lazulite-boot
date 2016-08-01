@@ -14,16 +14,25 @@
  * limitations under the License.
  */
 
+package org.lazulite.boot.autoconfigure.osaam.shiro.spring;
+
+import org.apache.shiro.SecurityUtils;
+import org.springframework.data.domain.AuditorAware;
+
 /**
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Created by junfu on 2016/7/4.
  */
-package org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.repository;
+public class ShiroAuditorAware implements AuditorAware<String> {
 
 
-import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.Resource;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+    @Override
+    public String getCurrentAuditor() {
+        Object principal=SecurityUtils.getSubject().getPrincipal();
+        if(principal==null){
+            return null;
+        }
+        return (String) principal;
+    }
 
-@RepositoryRestResource
-public interface ResourceRepository extends BaseRepository<Resource, Long> {
+
 }
