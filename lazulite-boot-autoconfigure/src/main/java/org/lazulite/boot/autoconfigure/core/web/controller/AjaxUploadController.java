@@ -13,20 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.lazulite.boot.autoconfigure.core.web.controller;
 
 
-import org.apache.commons.fileupload.FileUploadBase;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.lazulite.boot.autoconfigure.core.Constants;
-import org.lazulite.boot.autoconfigure.core.utils.ImagesUtils;
+
+import org.lazulite.boot.autoconfigure.config.Constants;
 import org.lazulite.boot.autoconfigure.core.utils.LogUtils;
 import org.lazulite.boot.autoconfigure.core.utils.MessageUtils;
 import org.lazulite.boot.autoconfigure.core.web.entity.AjaxUploadResponse;
 import org.lazulite.boot.autoconfigure.core.web.upload.FileUploadUtils;
 import org.lazulite.boot.autoconfigure.core.web.upload.exception.FileNameLengthLimitExceededException;
 import org.lazulite.boot.autoconfigure.core.web.upload.exception.InvalidExtensionException;
+import org.apache.commons.fileupload.FileUploadBase;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.lazulite.boot.autoconfigure.core.utils.ImagesUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

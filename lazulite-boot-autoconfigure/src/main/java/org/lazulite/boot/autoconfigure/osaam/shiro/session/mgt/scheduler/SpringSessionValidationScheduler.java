@@ -19,10 +19,10 @@
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.scheduler;
 
+import org.lazulite.boot.autoconfigure.osaam.shiro.web.session.mgt.OnlineWebSessionManager;
 import org.apache.shiro.session.mgt.DefaultSessionManager;
 import org.apache.shiro.session.mgt.SessionValidationScheduler;
 import org.apache.shiro.session.mgt.ValidatingSessionManager;
-import org.lazulite.boot.autoconfigure.osaam.shiro.web.session.mgt.OnlineWebSessionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -17,8 +17,8 @@
 package org.lazulite.boot.autoconfigure.core.web.controller;
 
 
-import org.apache.commons.lang3.StringUtils;
 import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.apache.commons.lang3.StringUtils;
 import org.lazulite.boot.autoconfigure.core.service.BaseService;
 import org.lazulite.boot.autoconfigure.core.web.controller.permission.PermissionList;
 import org.springframework.beans.factory.annotation.Autowired;

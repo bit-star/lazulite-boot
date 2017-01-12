@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.lazulite.boot</groupId>
         <artifactId>lazulite-boot-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.1-release</version>
         <relativePath>../lazulite-boot-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.lazulite.boot</groupId>
             <artifactId>lazulite-boot-autoconfigure</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.1-release</version>
         </dependency>
     </dependencies>
 </project>

@@ -19,8 +19,8 @@
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.service;
 
-import com.google.common.collect.Sets;
 import org.lazulite.boot.autoconfigure.core.service.BaseService;
+import com.google.common.collect.Sets;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.Role;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.RoleResourcePermission;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.repository.RoleRepository;

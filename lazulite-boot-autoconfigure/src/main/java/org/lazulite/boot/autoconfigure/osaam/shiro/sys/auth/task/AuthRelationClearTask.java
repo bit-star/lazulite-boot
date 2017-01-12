@@ -20,9 +20,6 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.task;
 
 
-import com.google.common.base.Function;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import org.lazulite.boot.autoconfigure.core.utils.LogUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.entity.Auth;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.service.AuthService;
@@ -31,6 +28,9 @@ import org.lazulite.boot.autoconfigure.osaam.shiro.sys.organization.service.JobS
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.organization.service.OrganizationService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.Role;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.service.RoleService;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

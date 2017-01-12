@@ -20,10 +20,10 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.sync;
 
 
-import org.apache.shiro.web.filter.PathMatchingFilter;
-import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSession;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.eis.OnlineSessionDAO;
+import org.apache.shiro.web.filter.PathMatchingFilter;
+import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;

@@ -20,6 +20,7 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.web.session.mgt;
 
 
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOnline;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.shiro.session.ExpiredSessionException;
@@ -30,7 +31,6 @@ import org.apache.shiro.session.mgt.SessionKey;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSession;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOnline;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserOnlineService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

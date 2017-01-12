@@ -20,10 +20,6 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.service;
 
 
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Sets;
-import org.apache.commons.lang3.StringUtils;
 import org.lazulite.boot.autoconfigure.core.utils.SpringUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.service.GroupService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.organization.service.JobService;
@@ -37,6 +33,10 @@ import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.entity.Resource;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.service.ResourceService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOrganizationJob;
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Sets;
+import org.apache.commons.lang3.StringUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

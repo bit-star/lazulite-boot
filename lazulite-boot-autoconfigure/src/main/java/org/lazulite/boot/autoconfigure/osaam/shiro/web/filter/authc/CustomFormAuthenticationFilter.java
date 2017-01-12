@@ -17,6 +17,10 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc;
 
 
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
+import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.info.*;
+import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.token.Token;
+import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.token.UpToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import org.apache.shiro.authc.AuthenticationException;
@@ -25,11 +29,7 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.lazulite.boot.autoconfigure.core.utils.SpringUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.service.UserAuthService;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserService;
-import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.info.*;
-import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.token.Token;
-import org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.authc.token.UpToken;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;

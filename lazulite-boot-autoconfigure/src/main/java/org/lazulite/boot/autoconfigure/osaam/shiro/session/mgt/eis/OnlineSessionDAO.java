@@ -20,12 +20,12 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.eis;
 
 
+import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSessionFactory;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOnline;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSession;
-import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSessionFactory;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOnline;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserOnlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 

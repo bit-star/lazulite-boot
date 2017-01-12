@@ -20,8 +20,8 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
 
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

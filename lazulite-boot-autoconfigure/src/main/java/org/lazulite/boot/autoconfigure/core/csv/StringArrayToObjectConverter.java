@@ -17,9 +17,9 @@
 package org.lazulite.boot.autoconfigure.core.csv;
 
 
+import org.lazulite.boot.autoconfigure.core.csv.annotations.CsvColumn;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import org.lazulite.boot.autoconfigure.core.csv.annotations.CsvColumn;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

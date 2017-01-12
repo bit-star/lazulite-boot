@@ -20,10 +20,10 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
 
 
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
 
 import javax.persistence.*;
 

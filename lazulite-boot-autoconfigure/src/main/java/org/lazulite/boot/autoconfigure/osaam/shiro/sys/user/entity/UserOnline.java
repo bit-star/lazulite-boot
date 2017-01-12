@@ -20,10 +20,9 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
 
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Type;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSession;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -169,7 +168,7 @@ public class UserOnline extends BaseEntity<Long> {
         this.status = status;
     }
     @Column(name = "sessionid")
-    @Type(type = "org.lazulite.boot.autoconfigure.core.repository.hibernate.type.ObjectSerializeUserType")
+    @Type(type = "ObjectSerializeUserType")
     public OnlineSession getSession() {
         return session;
     }

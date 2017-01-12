@@ -20,11 +20,11 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.service;
 
 
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.repository.GroupRelationRepository;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.ArrayUtils;
 import org.lazulite.boot.autoconfigure.core.service.BaseService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.entity.GroupRelation;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.repository.GroupRelationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

@@ -17,9 +17,8 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.spring;
 
 
-import org.apache.shiro.SecurityUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.annotation.CurrentUser;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
+import org.apache.shiro.SecurityUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;

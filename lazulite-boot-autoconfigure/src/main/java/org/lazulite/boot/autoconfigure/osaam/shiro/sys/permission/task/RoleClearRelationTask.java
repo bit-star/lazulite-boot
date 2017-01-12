@@ -21,11 +21,11 @@ package org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.task;
 
 
 import org.lazulite.boot.autoconfigure.core.utils.LogUtils;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.service.PermissionService;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.service.ResourceService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.Role;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.RoleResourcePermission;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.service.PermissionService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.service.RoleService;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.resource.service.ResourceService;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

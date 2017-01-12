@@ -20,20 +20,20 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service;
 
 
+import org.lazulite.boot.autoconfigure.core.service.BaseService;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserStatus;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.exception.UserBlockedException;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.exception.UserNotExistsException;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.exception.UserPasswordNotMatchException;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.utils.UserLogUtils;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
-import org.lazulite.boot.autoconfigure.core.service.BaseService;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserOrganizationJob;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserStatus;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.exception.UserBlockedException;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.exception.UserNotExistsException;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.exception.UserPasswordNotMatchException;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.repository.UserRepository;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.utils.UserLogUtils;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,7 +52,6 @@ public class UserService extends BaseService<User, Long> {
     @Autowired
     private PasswordService passwordService;
 
-    @Autowired
     private UserRepository getUserRepository() {
         return (UserRepository) baseRepository;
     }

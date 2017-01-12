@@ -20,13 +20,13 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.service;
 
 
+import org.lazulite.boot.autoconfigure.core.service.BaseService;
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.repository.GroupRepository;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import org.lazulite.boot.autoconfigure.core.service.BaseService;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.entity.Group;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

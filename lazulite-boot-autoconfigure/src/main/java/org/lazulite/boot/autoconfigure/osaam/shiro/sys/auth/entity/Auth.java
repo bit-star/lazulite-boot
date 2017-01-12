@@ -19,13 +19,13 @@
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.auth.entity;
 
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.repository.hibernate.type.CollectionToStringUserType;
 import com.google.common.collect.Sets;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
-import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
-import org.lazulite.boot.autoconfigure.core.repository.hibernate.type.CollectionToStringUserType;
 
 import javax.persistence.*;
 import java.util.Set;

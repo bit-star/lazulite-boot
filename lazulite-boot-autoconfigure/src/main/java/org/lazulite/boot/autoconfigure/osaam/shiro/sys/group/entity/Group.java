@@ -19,8 +19,8 @@
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.group.entity;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 

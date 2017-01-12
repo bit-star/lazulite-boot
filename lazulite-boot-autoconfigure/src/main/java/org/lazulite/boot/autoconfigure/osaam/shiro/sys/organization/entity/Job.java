@@ -19,11 +19,11 @@
  */
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.organization.entity;
 
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.plugin.entity.Treeable;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Formula;
-import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
-import org.lazulite.boot.autoconfigure.core.plugin.entity.Treeable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

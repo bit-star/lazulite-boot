@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.lazulite.boot.autoconfigure.core.utils.forbidden;
+
 
 
 import com.google.common.collect.Lists;
 import org.apache.commons.io.IOUtils;
-import org.lazulite.boot.autoconfigure.core.Constants;
+import org.lazulite.boot.autoconfigure.config.Constants;
 import org.lazulite.boot.autoconfigure.core.utils.fetch.RemoteFileFetcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

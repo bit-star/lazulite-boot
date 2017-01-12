@@ -20,12 +20,12 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.web.filter.user;
 
 
+import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserStatus;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.ShiroConstants;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.User;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserStatus;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 

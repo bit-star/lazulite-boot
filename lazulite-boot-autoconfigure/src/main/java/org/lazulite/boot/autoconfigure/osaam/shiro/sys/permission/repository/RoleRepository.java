@@ -20,8 +20,8 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.repository;
 
 
-import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.Role;
+import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.permission.entity.RoleResourcePermission;
 import org.springframework.data.jpa.repository.Query;
 

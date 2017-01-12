@@ -20,6 +20,8 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity;
 
 
+import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
+import org.lazulite.boot.autoconfigure.core.plugin.entity.LogicDeleteable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -29,8 +31,6 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.lazulite.boot.autoconfigure.core.entity.BaseEntity;
-import org.lazulite.boot.autoconfigure.core.plugin.entity.LogicDeleteable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

@@ -16,17 +16,17 @@
 
 package org.lazulite.boot.autoconfigure.osaam.shiro;
 
+import org.apache.shiro.mgt.SecurityManager;
+import org.lazulite.boot.autoconfigure.osaam.shiro.cache.spring.SpringCacheManagerWrapper;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.lazulite.boot.autoconfigure.osaam.shiro.cache.spring.SpringCacheManagerWrapper;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.OnlineSessionFactory;
 import org.lazulite.boot.autoconfigure.osaam.shiro.session.mgt.eis.OnlineSessionDAO;
 import org.lazulite.boot.autoconfigure.osaam.shiro.spring.ShiroAuditorAware;
-import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.service.UserService;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -96,8 +96,8 @@ public class ShiroConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public ShiroAuditorAware shiroAuditorAware() {
-        ShiroAuditorAware shiroAuditorAware=new ShiroAuditorAware();
+    public ShiroAuditorAware shiroAuditorAware(SecurityManager securityManager) {
+        ShiroAuditorAware shiroAuditorAware=new ShiroAuditorAware(securityManager);
         return shiroAuditorAware;
     }
 

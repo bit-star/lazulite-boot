@@ -20,8 +20,8 @@
 package org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.repository;
 
 
-import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
 import org.lazulite.boot.autoconfigure.osaam.shiro.sys.user.entity.UserStatusHistory;
+import org.lazulite.boot.autoconfigure.core.repository.BaseRepository;
 
 public interface UserStatusHistoryRepository extends BaseRepository<UserStatusHistory, Long> {
 

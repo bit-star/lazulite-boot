@@ -18,7 +18,6 @@ package org.lazulite.boot.autoconfigure.osaam.shiro;
 
 import org.lazulite.boot.autoconfigure.core.utils.SpringUtils;
 import org.lazulite.boot.autoconfigure.osaam.shiro.spring.CurrentUserMethodArgumentResolver;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
